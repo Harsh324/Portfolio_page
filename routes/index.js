@@ -40,6 +40,10 @@ router.get('/pfCardForm', function(req, res, next) {
   res.render('pfCardForm', {});
 });
 
+router.get('/pfPortfolio', function(req, res, next) {
+  res.render('pfPortfolio', {});
+});
+
 router.post('/saveData', function (req, res) {
   MongoClient.connect(url, (err, db) => {
     if(err){
