@@ -2,6 +2,7 @@ body {
     font-family: tahoma;
     height: 100vh;
     background-image: url(https://picsum.photos/g/3000/2000);
+    /* background-color: darkturquoise; */
     background-size: cover;
     background-position: center;
     display: flex;
