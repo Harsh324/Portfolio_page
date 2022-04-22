@@ -44,6 +44,10 @@ router.get('/pfPortfolio', function(req, res, next) {
   res.render('pfPortfolio', {});
 });
 
+router.get('/ppPage', function(req, res, next) {
+  res.render('ppPage', {});
+});
+
 router.post('/saveData', function (req, res) {
   MongoClient.connect(url, (err, db) => {
     if(err){
