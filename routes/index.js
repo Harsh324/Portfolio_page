@@ -4,21 +4,6 @@ var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
 
-// const data = [
-//   {
-//     name: "Harsh",
-//     post: "Assistant Professor"
-//   },
-//   {
-//     name: "Tripathi",
-//     post: "Hole Manager"
-//   },
-//   {
-//     name: "Giri",
-//     post: "Ch**t chatora"
-//   }
-// ]
-
 var data;
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -55,13 +40,49 @@ router.get('/ppPage', function(req, result, next) {
     var dbo = db.db("ITW");
     dbo.collection('pfCardInfo').find({name: req.query.name, post: req.query.post}).toArray((err, res) => {
       if(err) throw err;
-      res[0].education = res[0].education.split(';');
-      res[0].publication = res[0].publication.split(';');
-      res[0].supervision = res[0].supervision.split(';');
-      res[0].responsibility = res[0].responsibility.split(';');
-      res[0].experience = res[0].experience.split(';');
-      res[0].currently_teaching = res[0].currently_teaching.split(';');
-      res[0].research = res[0].research.split(';');
+      try{
+        res[0].education = res[0].education.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
+      try{
+        res[0].experience = res[0].experience.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
+
+      try{
+        res[0].research = res[0].research.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
+      try{
+        res[0].currently_teaching = res[0].currently_teaching.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
+      try{
+        res[0].responsibility = res[0].responsibility.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
+      try{
+        res[0].supervision = res[0].supervision.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
+      try{
+        res[0].publication = res[0].publication.split(';');
+      }
+      catch(err){
+        console.log(err);
+      }
       console.log(res);
       
       result.render('ppPage', {res});
