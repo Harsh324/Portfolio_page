@@ -3,6 +3,17 @@ const { Double } = require('mongodb');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
+var multer = require('multer')
+
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+var upload = multer({ storage: storage })
 
 var data;
 /* GET home page. */
@@ -92,7 +103,7 @@ router.get('/ppPage', function(req, result, next) {
   });
 });
 
-router.post('/saveData', function (req, res) {
+router.post('/saveData', upload.single('profile-file'), function (req, res, next) {
   MongoClient.connect(url, (err, db) => {
     if(err){
       console.log(err);
@@ -108,6 +119,5 @@ router.post('/saveData', function (req, res) {
   });
   res.redirect('/');
 });
-
 
 module.exports = router;
