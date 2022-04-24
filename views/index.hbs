@@ -1,16 +1,46 @@
 {{!-- <h1>{{ title }}</h1>
 <p> Welcome to {{ title }} </p> --}}
+<script src="https://kit.fontawesome.com/b8eb6fc7e0.js" crossorigin="anonymous"></script>
+<div class="navigationbar">
+	<div class="title_bar">
+			<img src="https://iiitn.ac.in/images/main-logo-90x90.png" alt="">
+			
+			<h1>Indian Institute of Information Technology, Nagpur</h1>
+			<i class="fa-solid fa-graduation-cap"></i>
+			
+			
+			{{!-- <span><i class="fa-solid fa-graduation-cap"></i></span> --}}
+		
+	</div>
+	<ul class="navigationbar1">
+
+		{{!-- <li class="navigationli"><a class="anavigation" href="https://iiitn.ac.in/">Home</a></li> --}}
+		{{!-- <li class="navigationli" ><a class="a_logo" href="https://iiitn.ac.in/"><img src="https://iiitn.ac.in/images/main-logo-90x90.png" alt=""></a></li> --}}
+		{{!-- <h1 class="hading">Indian Institute of Information Technology, Nagpur</h1> --}}
+		
+		<i class="fa-solid fa-house"></i>
+		<li class="navigationli"><a class="anavigation" href="https://iiitn.ac.in/">Home</a></li>
+		
+		
+		<i class="fa-solid fa-user-plus"></i>
+		<li class="navigationli" id="lisignup"><a class="anavigation" href="#">Sign Up</a></li>
+		<i class="fa-solid fa-right-to-bracket"></i>
+		<li class="navigationli" id="lilogin"><a class="anavigation" href="#">Login</a></li>
+	</ul>
+</div>
+
 
 <div class="container">
 
 	<div class="row">
-
 			{{#each data}}
 
 			<a href="/ppPage/?name={{name}}&post={{post}}"> 
+
 			<div class="col-12 col-sm-6 col-md-4 col-lg-3">
 
 				<div class="our-team">
+
 					<div class="picture">
 						<img class="img-fluid" src="https://picsum.photos/130/130?image=1027">
 					</div>
@@ -21,15 +51,14 @@
 					</div>
 
 					<ul class="social">
-						<li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
-						<li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
-						<li><a href="#" class="fa fa-google-plus" aria-hidden="true"></a></li>
-						<li><a href="#" class="fa fa-linkedin" aria-hidden="true"></a></li>
+						<li><a href = {{facebook_id}} class="fa fa-facebook" aria-hidden="true"></a></li>
+						<li><a href = {{twitter_id}} class="fa fa-twitter" aria-hidden="true"></a></li>
+						<li><a href = {{instagram_id}} class="fa fa-google-plus" aria-hidden="true"></a></li>
+						<li><a href = {{Linkedin_id}} class="fa fa-linkedin" aria-hidden="true"></a></li>
 					</ul>
 
 				</div>
-    		</div>	
-			</a>		
+    		</div>			
 			{{/each}}
 	</div>
 
