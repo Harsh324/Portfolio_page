@@ -1,11 +1,12 @@
 body {
   font-family: tahoma;
   height: 100vh;
-  /* background-image: url(https://picsum.photos/g/3000/2000); */
-  background-color: #443266;
+  /* width: 100%; */
+  background-image: url(https://picsum.photos/g/3000/2000);
+  /* background-color: #443266; */
   background-size: cover;
   background-position: center;
-  display: flex;
+  /* display: flex; */
   align-items: center;
   display: grid;
   grid-template-columns: auto;
