@@ -120,4 +120,14 @@ router.post('/saveData', upload.single('profile-file'), function (req, res, next
   res.redirect('/');
 });
 
+
+router.get('/Login', function(req, res, next) {
+  res.render('Login', {});
+});
+
+
+router.get('/Signup', function(req, res, next) {
+  res.render('Signup', {});
+});
+
 module.exports = router;
