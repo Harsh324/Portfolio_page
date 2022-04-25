@@ -1,9 +1,15 @@
+const flash = require('connect-flash/lib/flash');
 var express = require('express');
 const { Double } = require('mongodb');
 var router = express.Router();
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
 var multer = require('multer')
+
+
+
+
+
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -127,7 +133,7 @@ router.post('/saveData', upload.single('profile-file'), function (req, res, next
 //Rendering the Login page
 router.get('/Login', function(req, res, next) {
   console.log("Inside Login");
-  res.render('Login', {});
+  res.render('Login');
 });
 
 
@@ -165,8 +171,26 @@ router.post('/Signup_Validate', function(req, res, next)
 {
   console.log("Username is : " + req.body.username);
   console.log("Password is : " + req.body.password);
+  console.log("Password1 is : " + req.body.password1);
+  if(req.body.password == req.body.password1)
+  {
+    console.log("Password match");
+    // request.flash('message', 'Signed up successfully!')
+    res.redirect('Login');
+  }
+  else
+  {
+    console.log("Password mismatch trya agin");
+    // alert('Password mismatch!  try again');
+    // popup.alert({
+    //   content: 'Hello!'
+    // });
+    // res.redirect('Signup');
+    res.redirect('Signup');
+  }
+  
 
-  res.redirect('Login');
+  
 });
 
 module.exports = router;
