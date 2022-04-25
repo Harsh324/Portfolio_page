@@ -6,11 +6,6 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017";
 var multer = require('multer')
 
-
-
-
-
-
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './uploads')
@@ -53,7 +48,7 @@ router.get('/ppPage', function(req, result, next) {
       console.log(err);
       return;
     }
-    // console.log(req.body.name);?
+    // console.log(req.body.name);
     var dbo = db.db("ITW");
     dbo.collection('pfCardInfo').find({name: req.query.name, post: req.query.post}).toArray((err, res) => {
       if(err) throw err;
@@ -117,17 +112,17 @@ router.post('/saveData', upload.single('profile-file'), function (req, res, next
     }
     var dbo = db.db("ITW");
     // console.log(req.body);
+    var imgPath = req.body.name.trim().toLowerCase();
+    
     dbo.collection("pfCardInfo").insertOne(req.body, (err, res) => {
       if(err){
         console.log(err);
       }
     })
+  
   });
   res.redirect('/');
 });
-
-
-
 
 
 //Rendering the Login page
@@ -137,18 +132,11 @@ router.get('/Login', function(req, res, next) {
 });
 
 
-
-
-
 // Rendering the Signup page
 router.get('/Signup', function(req, res, next) {
   console.log("Inside Login");
   res.render('Signup', {});
 });
-
-
-
-
 
 
 // Validating the Login and redirecting to portfolio form to take input all details.
