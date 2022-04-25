@@ -121,13 +121,52 @@ router.post('/saveData', upload.single('profile-file'), function (req, res, next
 });
 
 
+
+
+
+//Rendering the Login page
 router.get('/Login', function(req, res, next) {
+  console.log("Inside Login");
   res.render('Login', {});
 });
 
 
+
+
+
+// Rendering the Signup page
 router.get('/Signup', function(req, res, next) {
+  console.log("Inside Login");
   res.render('Signup', {});
+});
+
+
+
+
+
+
+// Validating the Login and redirecting to portfolio form to take input all details.
+router.post('/Login_Validate', function(req, res, next){
+
+  console.log("Username is : " + req.body.username);
+  console.log("Password is : " + req.body.password);
+
+
+  res.redirect('/pfPortfolio');
+});
+
+
+
+
+
+
+// Validating the Signup and redirecting to Login is success.
+router.post('/Signup_Validate', function(req, res, next)
+{
+  console.log("Username is : " + req.body.username);
+  console.log("Password is : " + req.body.password);
+
+  res.redirect('Login');
 });
 
 module.exports = router;
